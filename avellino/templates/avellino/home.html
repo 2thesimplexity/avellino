@@ -1,0 +1,70 @@
+{% load widget_tweaks %}
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'avellino/home.css'%}">
+
+<nav class="navbar navbar-default center" role="navigation">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    <img class="img-responsive center" src="https://avellinocoronatest.com/wp-content/uploads/2020/03/avellinocorona_logo.png" alt="Avellino Coronavirus Test">
+                </div>
+            </div>
+       </div>
+    </div>
+</nav>
+
+<div class="container center">
+        <h2 class="entry-title">Patient  <br/> Portal &nbsp </h2>
+
+
+<div class="messages">
+    {% for message in messages %}
+    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+</div>
+
+
+<div class="center">   
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form%}
+        <div class="form-group">
+            {{ field.errors }}
+            <div class="font-weight-bold" style="padding-right: 13%; margin: 1%">
+                {% render_field field.label_tag %}
+            </div>
+            {% render_field field class="form-control center-div" %}
+        </div>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Login" class="button">
+
+    </form>
+    <section style="padding-right: 13%; margin: 1%">
+        <a href='/'>Forgot password?</a>
+        <br>
+        <a href="/">IOS login issues? &nbsp </a>
+    </section>
+</div>
+
+
+<nav class="navbar footer fixed-bottom center" role="footer">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand ">
+                    <div class="copyrightinfo">
+                        <p>Terms and Conditions | Privacy Policy | Genetic Data Usage and Privacy | Accreditations &amp; Certifications | Accessibility </p>
+                        <p style="margin: 0.1%">©2020 Avellino Labs</a>. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
