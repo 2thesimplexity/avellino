@@ -30,23 +30,23 @@
     <form method="POST">
         {% csrf_token %}
         {% for field in form%}
-        <div class="form-group">
+        <div class="form-group" style="margin: 1.5%">
             {{ field.errors }}
-            <div class="font-weight-bold" style="padding-right: 13%; margin: 1%">
+            <div class="font-weight-bold label">
                 {% render_field field.label_tag %}
             </div>
             {% render_field field class="form-control center-div" %}
         </div>
         {% endfor %}
-        <br>
         <input type="submit" value="Login" class="button">
 
     </form>
-    <section style="padding-right: 13%; margin: 1%">
+    <section class="label">
         <a href='/'>Forgot password?</a>
         <br>
-        <a href="/">IOS login issues? &nbsp </a>
+        <a href="https://avellinocoronatest.com/webapp/helpdesk/ios/">IOS login issues? &nbsp </a>
     </section>
+</div>
 </div>
 
 
